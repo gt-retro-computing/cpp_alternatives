@@ -21,7 +21,7 @@ __SUPPORTED_LANGS = {
     },
     "odin": {
         "ext": ".odin",
-        "build": ""
+        "build": "odin run {0}.odin -file"
     }
 }
 
