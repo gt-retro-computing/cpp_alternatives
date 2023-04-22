@@ -15,8 +15,9 @@ public:
     bool is_empty() {return _size == 0;}
     bool add(T data) {
         Node<T> curr = new Node<T>();
+        curr.data = data;
+
         if (_size == 0) {
-            curr.data = data;
             head = tail = curr;
         } else {
             tail.next = curr;

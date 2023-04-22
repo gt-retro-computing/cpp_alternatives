@@ -14,8 +14,8 @@ class LinkedList<T> {
     public boolean is_empty() {return size == 0;}
     public boolean add(T data) {
         Node<T> curr = new Node<>();
+        curr.data = data;
         if (size == 0) {
-            curr.data = data;
             head = tail = curr;
         } else {
             tail.next = curr;
@@ -57,8 +57,7 @@ class LinkedList<T> {
             curr = curr.next;
         }
         if (idx != 0) return null;
-        Node<T> temp = curr.next;
-        
+       
         T ret = curr.data;
         curr.prev.next = curr.next;
         curr.next.prev = curr.prev;

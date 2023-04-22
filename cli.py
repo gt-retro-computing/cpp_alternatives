@@ -18,6 +18,10 @@ __SUPPORTED_LANGS = {
     "c++": {
         "ext": ".cpp", 
         "build": "g++ {0}.cpp",
+    },
+    "odin": {
+        "ext": ".odin",
+        "build": ""
     }
 }
 
@@ -81,11 +85,20 @@ def _build_items_in_src():
     for item in _get_items_in_src():
         _build_supported_langs(item)
 
+def _update_director_structure():
+    for item in _get_items_in_src():
+        for lang in __SUPPORTED_LANGS:
+            if not os.path.exists(f"./src/{item}/{lang}"):
+                _create_dir(f"./src/{item}/{lang}/")
+                _create_file(f"src/{item}/{lang}/{item}{__SUPPORTED_LANGS[lang]['ext']}")
+
+
 
 # args
 argParser = argparse.ArgumentParser()
 argParser.add_argument("-c", "--create", type=str, help="Create a directory structure with all supported programming languages.")
 argParser.add_argument("-b", "--build", action='store_true', help="Build all the files in the src directory and places them in a separate build directory structure. Builds all supported programming languages.")
+argParser.add_argument("-u", "--update", action='store_true', help="Check if all supported languages are present and if one is missing then add it for each item in the src/ directory.")
 
 # main
 if __name__ == "__main__":
@@ -95,4 +108,6 @@ if __name__ == "__main__":
         _create_supported_langs_dirs(args.create)
     if args.build:
         _build_items_in_src()
+    if args.update:
+        _update_director_structure()
     
