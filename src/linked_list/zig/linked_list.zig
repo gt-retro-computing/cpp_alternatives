@@ -118,22 +118,3 @@ pub fn LinkedList(comptime T: type) type {
 }
 
 pub fn main() !void {}
-
-test "empty linked list - is_empty" {}
-test "empty linked list - length" {}
-test "empty linked list - adding" {}
-test "empty linked list - removing" {}
-test "empty linked list - inserting" {}
-
-test "1 item linked list - head = tail" {}
-test "1 item linked list - is_empty" {}
-test "1 item linked list - length" {}
-test "1 item linked list - adding" {}
-test "1 item linked list - removing" {}
-test "1 item linked list - inserting" {}
-
-test "many item linked list - is_empty" {}
-test "many item linked list - length" {}
-test "many item linked list - adding" {}
-test "many item linked list - removing" {}
-test "many item linked list - inserting" {}

@@ -1,0 +1,113 @@
+Tests:
+#empty linked list - is_empty
+[]
+Op: is_empty
+Out: true
+State: []
+
+#empty linked list - size
+[]
+Op: size
+Out: 0
+State: []
+
+#empty linked list - adding
+[]
+Op: add
+In: 10
+Out: true
+State: [10]
+
+#empty linked list - removing
+[]
+Op: remove
+In: 10
+Out: null
+State: []
+
+
+#empty linked list - inserting valid index
+[]
+Op: insert
+In: 0
+In: 10
+Out: true
+State: [10]
+
+#empty linked list - inserting invalid index negative
+[]
+Op: insert
+In: -1
+In: 10
+Out: false
+State: []
+
+#empty linked list - inserting invalid index positive
+[]
+Op: insert
+In: 2
+In: 10
+Out: false
+State: []
+
+#1 item linked list - head = tail
+[Initializeer]
+Op: add
+In: 10
+Out: true
+State: [10]
+
+
+#1 item linked list - is_empty
+[]
+Op: is_empty
+Out: false
+State: []
+
+#1 item linked list - size
+[]
+Op: size
+Out: 1
+State: []
+
+
+#1 item linked list - adding
+[]
+Op: adding
+
+
+#1 item linked list - removing
+[]
+Op: removing
+
+
+#1 item linked list - inserting
+[]
+Op: inserting
+
+
+
+#many item linked list - is_empty
+[]
+Op: is_empty
+
+
+#many item linked list - size
+[]
+Op: size
+
+
+#many item linked list - adding
+[]
+Op: adding
+
+
+#many item linked list - removing
+[]
+Op: removing
+
+
+#many item linked list - inserting
+[]
+Op: inserting
+

@@ -6,6 +6,13 @@ import shutil
 __ITEM_LOCATION = lambda item, lang, pref="", suff="": f"{pref}{item}/{lang}{suff}"
 __ITEM_PATH = lambda item, lang, pref="", suff="": __ITEM_LOCATION(item, lang, pref, "/" + item + suff)
 
+__WRITE_UP_TEMPLATE = """## Ease of Switching
+
+## Performance
+
+## Features/ Bugs
+"""
+
 __SUPPORTED_LANGS = {
     "zig": {
         "ext": ".zig", 
@@ -30,16 +37,17 @@ def _create_dir(dirname):
     print("Making directory:", dirname)
     if os.path.exists(dirname):
         print(f"Path '{dirname}' already exists")
-        exit(1)
+        return
     os.mkdir(dirname)
 
-def _create_file(filename):
+def _create_file(filename, template = None):
     print("Making file:", filename)
     if os.path.exists(filename):
         print(f"Path '{filename}' already exists")
-        exit(1)
-    with open(filename, "w"):
-        pass
+        return
+    with open(filename, "w") as f:
+        if template:
+            f.write(str(template))
 
 def _create_supported_langs_dirs(item_name):
     _create_dir(f"src/{item_name}")
@@ -92,6 +100,24 @@ def _update_director_structure():
                 _create_dir(f"./src/{item}/{lang}/")
                 _create_file(f"src/{item}/{lang}/{item}{__SUPPORTED_LANGS[lang]['ext']}")
 
+def _create_extension_dir_langs(dirname, file_ext, item_name, template):
+    _create_dir(f"{dirname}/")
+    for lang in __SUPPORTED_LANGS:
+        _create_dir(f"{dirname}/{lang}")
+        _create_file(f"{dirname}/{lang}/{item_name}.{file_ext}", template = template)
+
+def _create_extension_dir(dirname, file_ext, item_name, template):
+    _create_dir(f"{dirname}/")
+    _create_file(f"{dirname}/{item_name}.{file_ext}", template = template)
+
+def _create_writeups_dir():
+    for item in _get_items_in_src():
+        _create_extension_dir_langs("writeups", "md", item, __WRITE_UP_TEMPLATE)
+
+def _create_test_cases_dir():
+    for item in _get_items_in_src():
+        _create_extension_dir("test-cases", "tc", item, "Tests: ")
+
 
 
 # args
@@ -99,6 +125,8 @@ argParser = argparse.ArgumentParser()
 argParser.add_argument("-c", "--create", type=str, help="Create a directory structure with all supported programming languages.")
 argParser.add_argument("-b", "--build", action='store_true', help="Build all the files in the src directory and places them in a separate build directory structure. Builds all supported programming languages.")
 argParser.add_argument("-u", "--update", action='store_true', help="Check if all supported languages are present and if one is missing then add it for each item in the src/ directory.")
+argParser.add_argument("-w", "--writeups", action='store_true', help="Create and update directory structure for writeups markdown files.")
+argParser.add_argument("-tc", "--test-cases", action='store_true', help="Generate Test Cases directory")
 
 # main
 if __name__ == "__main__":
@@ -110,4 +138,8 @@ if __name__ == "__main__":
         _build_items_in_src()
     if args.update:
         _update_director_structure()
+    if args.writeups:
+        _create_writeups_dir()
+    if args.test_cases:
+        _create_test_cases_dir()
     

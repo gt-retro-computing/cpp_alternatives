@@ -1,0 +1,43 @@
+Tests: 8
+#Empty List
+[1]
+In: []
+In: 20
+Out: -1
+
+#Element present in List
+[2]
+In: [1, 3, 5, 7]
+In: 3
+Out: 1
+
+#Element present in list with one Element
+[3]
+In: [1]
+In: 1
+Out: 0
+
+#Element absent in list with one element
+[4]
+In: [1]
+In: 5
+Out: -1
+
+#Element present at the end of the list
+[5]
+In: [1, 3, 5, 7, 9, 10]
+In: 10
+Out: 5
+
+#List with negative numbers and negative key
+[6]
+In: [-5, -4, -2, 0, 3, 5, 12]
+In: -2
+Out: 2
+
+
+#List with negative numbers and positive key
+[7]
+In: [-5, -4, -2, 0, 3, 5, 12]
+In: 3
+Out: 4
