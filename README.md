@@ -1,6 +1,6 @@
-#Analysing Zig and Odin
+# Analysing Zig and Odin
 
-##Why should I leave C++ behind
+## Why should I leave C++ behind
 Coming from Java and C++ into Zig and Odin, it's fair to say that on the surface these languages don't have a very high learning curve if you have access to their documentation and are willing to rely on limited community support through github issues. 
 
 Both languages try and fix the main issue with C++: so many features have been introduced each with their own edge cases and overheads that this combined with the fact that C++ has to be reverse compatible with C has lead to a language that can write seemingly beautiful code at times but if you havent read 10000s of pages of documentation and have not had 100s of hours testing and exploring the compiled output of your code, you will probably not have effective code. 
@@ -43,7 +43,7 @@ do_something :: proc (a : custom_type) {
 has no overhead!
 
 
-##So time to delete gcc?
+## So time to delete gcc?
 
 Nope! These languages are by no means complete replacements! I do not think I will ever replace C++ 100%, atleast not with zig or odin. Both have small communities compared to C++ and although they do have bindings to C/C++ code, they do not have as extensive of a library as C++ would. They are relatively new as well. 
 
