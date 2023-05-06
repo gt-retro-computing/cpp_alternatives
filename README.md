@@ -43,7 +43,7 @@ do_something :: proc (a : custom_type) {
 has no overhead!
 
 
-## So time to delete gcc?
+## So time to delete g++?
 
 Nope! These languages are by no means complete replacements! I do not think I will ever replace C++ 100%, atleast not with zig or odin. Both have small communities compared to C++ and although they do have bindings to C/C++ code, they do not have as extensive of a library as C++ would. They are relatively new as well. 
 
