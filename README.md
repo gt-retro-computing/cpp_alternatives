@@ -51,7 +51,7 @@ While both languages do seem to be going the right way, and I do prefer developi
 
 I love how zig has unit tests integrated into the language and build cycle and how odin gives me the same vibe as python, however I don't think I would migrate to either until I see big projects like a web browser or a game engine written as purely in these languages as possible. 
 
-##But is C++ any good compared to them?
+## But is C++ any good compared to them?
 Yes! C++ still is a highly customizable (although sometimes bad as shown with operator overloading) development tool, and something that has even gone as far as reached embedded devices (A video related to another project in this VIP actually showed me how beautifully you can write minimal overhead code for embedded devices **IF** you know C++ inside out  "https://www.youtube.com/watch?v=zBkNBP00wJE").
 
 Not to mention, I had to make drastic changes such as completely scrap generics in Odin since it isnt as intuitive as C++/ zig/ Java (I thought I was getting a generic typed array but I was instead getting an array of generic types which didnt make sense to me as I thought the type would somehow be abstracted/ erased after compiling). 
