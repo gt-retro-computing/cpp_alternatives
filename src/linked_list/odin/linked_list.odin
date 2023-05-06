@@ -105,4 +105,6 @@ size :: proc ($T: typeid, list : LinkedList(T)) {
     
 // }
 
+toArr :: proc () {}
+
 main :: proc () {}
